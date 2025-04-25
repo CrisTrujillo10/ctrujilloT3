@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ctrujilloT3.Views.vista1"
+             Title="vista1">
+    <VerticalStackLayout
+        Spacing="20"
+        Padding="20">
+        <Label 
+            Text="INGRESAR CONTACTOS"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Text="Identificacion"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                Grid.Row="0"
+                Grid.Column="0"/>
+
+            <Picker 
+                x:Name="pkIdentificacion" 
+                Grid.Row="0"
+                Grid.Column="1" >
+                <Picker.Items>
+                    <x:String>CI</x:String>
+                    <x:String>RUC</x:String>
+                    <x:String>Pasaporte</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label
+                Text="Nombres"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                Grid.Row="1"
+                Grid.Column="0"/>
+            <Entry 
+                x:Name="txtNombres"
+                Placeholder="Ingresa tu nombre"
+                Grid.Row="1"
+                Grid.Column="1" />
+            <Label
+                Text="Apellidos"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                Grid.Row="2"
+                Grid.Column="0"/>
+            <Entry 
+                x:Name="txtApellidos"
+                Placeholder="Ingresa tu apellido"
+                Grid.Row="2"
+                Grid.Column="1"/>
+            <Label
+                Text="Fecha"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                Grid.Row="3"
+                Grid.Column="0"/>
+            <DatePicker 
+                x:Name="dpkFecha" 
+                Format="yyyy/MM/dd"
+                Grid.Row="3" 
+                Grid.Column="1"/>
+            <Label
+                Text="Correo"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                Grid.Row="4"
+                Grid.Column="0"/>
+            <Entry 
+                x:Name="txtCorreo"
+                Placeholder="Ingresa tu correo"
+                Grid.Row="4"
+                Grid.Column="1"/>
+            <Label
+                Text="Salario"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                Grid.Row="5"
+                Grid.Column="0"/>
+            <Entry 
+                x:Name="txtSalario"
+                MaxLength="7"
+                Placeholder="Ingresa tu salario"
+                Grid.Row="5"
+                Grid.Column="1"/>
+        </Grid>
+
+        <Button 
+                x:Name="btnGuardar"
+                Text="Guardar"
+                Clicked="btnGuardar_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>
