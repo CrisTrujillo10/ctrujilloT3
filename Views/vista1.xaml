@@ -4,91 +4,92 @@
              x:Class="ctrujilloT3.Views.vista1"
              Title="vista1">
 
-	<ContentPage.Resources>
-		<Style TargetType="Label">
-			<Setter Property="FontSize" Value="18"/>
-			<Setter Property="TextColor" Value="Goldenrod"/>
-			<Setter Property="HorizontalTextAlignment" Value="Center"/>
-		</Style>
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="Goldenrod"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
 
-		<Style TargetType="Picker">
-			<Setter Property="FontSize" Value="18"/>
-			<Setter Property="TextColor" Value="White"/>
-			<Setter Property="Background" Value="Chocolate"/>
-		</Style>
+        <Style TargetType="Picker">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Background" Value="Chocolate"/>
+        </Style>
 
-		<Style TargetType="DatePicker">
-			<Setter Property="FontSize" Value="18"/>
-			<Setter Property="TextColor" Value="White"/>
-			<Setter Property="Background" Value="Chocolate"/>
-		</Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Background" Value="Chocolate"/>
+        </Style>
 
-		<Style TargetType="Entry">
-			<Setter Property="FontSize" Value="18"/>
-			<Setter Property="TextColor" Value="White"/>
-			<Setter Property="PlaceholderColor" Value="White"/>
-			<Setter Property="Background" Value="Chocolate"/>
-		</Style>
+        <Style TargetType="Entry">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="PlaceholderColor" Value="White"/>
+            <Setter Property="Background" Value="Chocolate"/>
+        </Style>
 
-		<Style TargetType="Button">
-			<Setter Property="FontSize" Value="20"/>
-			<Setter Property="TextColor" Value="White"/>
-			<Setter Property="Background" Value="Goldenrod"/>
-		</Style>
-	</ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="Background" Value="Goldenrod"/>
+        </Style>
+    </ContentPage.Resources>
 
-	<VerticalStackLayout
+    <VerticalStackLayout
         Padding="20"
         Spacing="20">
 
-		<Label
+        <Label
             Text="CONTACTOS"
             FontSize="30"
             VerticalOptions="Center"
             HorizontalOptions="Center"/>
 
-		<Image
+        <Image
             Source="iess.png"
             MaximumHeightRequest="175"/>
 
-		<Picker
+        <Picker
             x:Name="pkIdentificacion" >
-			<Picker.Items>
-				<x:String>CI</x:String>
-				<x:String>RUC</x:String>
-				<x:String>Pasaporte</x:String>
-			</Picker.Items>
-		</Picker>
+            <Picker.Items>
+                <x:String>CI</x:String>
+                <x:String>RUC</x:String>
+                <x:String>Pasaporte</x:String>
+            </Picker.Items>
+        </Picker>
 
-		<Entry
+        <Entry
             x:Name="txtIdentificacion"
+            MaxLength="13"
             Placeholder="Ingresa tu identificacion"/>
 
-		<Entry
+        <Entry
             x:Name="txtNombres"
             Placeholder="Ingresa tu nombre"/>
 
-		<Entry
+        <Entry
             x:Name="txtApellidos"
             Placeholder="Ingresa tu apellido"/>
 
-		<DatePicker
+        <DatePicker
             x:Name="dpkFecha"
             Format="yyyy/MM/dd"/>
 
-		<Entry
+        <Entry
             x:Name="txtCorreo"
             Placeholder="Ingresa tu correo"/>
 
-		<Entry
+        <Entry
             x:Name="txtSalario"
             MaxLength="7"
             Placeholder="Ingresa tu salario"/>
 
-		<Button
+        <Button
             x:Name="btnGuardar"
             Text="Guardar"
             Clicked="btnGuardar_Clicked"/>
 
-	</VerticalStackLayout>
-</ContentPage>
+    </VerticalStackLayout>
+</ContentPage>    

@@ -14,7 +14,7 @@ public partial class vista1 : ContentPage
 
         if (pkIdentificacion.SelectedIndex == -1)
         {
-            DisplayAlert("Error", "Seleccione un tipo de identificación.", "Cerrar");
+            DisplayAlert("Error", "Seleccione de nuevo el tipo de identificación", "Cerrar");
             return;
         }
 
@@ -23,7 +23,7 @@ public partial class vista1 : ContentPage
 
         if (string.IsNullOrWhiteSpace(numeroIdentificacion))
         {
-            DisplayAlert("Error", "Ingrese el número de identificación.", "Cerrar");
+            DisplayAlert("Error", "Ingrese de nuevo el numero de identificacion", "Cerrar");
             return;
         }
 
@@ -31,7 +31,7 @@ public partial class vista1 : ContentPage
         {
             if (numeroIdentificacion.Length != 10 || !numeroIdentificacion.All(char.IsDigit))
             {
-                DisplayAlert("Error", "Ingrese el CI", "Cerrar");
+                DisplayAlert("Error", "Ingrese de nuevo el CI", "Cerrar");
                 return;
             }
         }
@@ -39,32 +39,32 @@ public partial class vista1 : ContentPage
         {
             if (numeroIdentificacion.Length != 13 || !numeroIdentificacion.All(char.IsDigit))
             {
-                DisplayAlert("Error", "Ingrese el RUC", "Cerrar");
+                DisplayAlert("Error", "Ingrese de nuevo el RUC", "Cerrar");
                 return;
             }
         }
 
-        if (string.IsNullOrWhiteSpace(txtNombres.Text))
+        if (string.IsNullOrWhiteSpace(txtNombres.Text) || !txtNombres.Text.All(c => char.IsLetter(c) || c == ' '))
         {
-            DisplayAlert("Error", "Ingrese su nombre.", "OK");
+            DisplayAlert("Error", "Ingrese de nuevo los nombres", "Cerrar");
             return;
         }
 
-        if (string.IsNullOrWhiteSpace(txtApellidos.Text))
+        if (string.IsNullOrWhiteSpace(txtApellidos.Text) || !txtApellidos.Text.All(c => char.IsLetter(c) || c == ' '))
         {
-            DisplayAlert("Error", "Ingrese su apellido.", "OK");
+            DisplayAlert("Error", "Ingrese de nuevo los apellidos", "Cerrar");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(txtCorreo.Text))
         {
-            DisplayAlert("Error", "Ingrese su correo.", "OK");
+            DisplayAlert("Error", "Ingrese de nuevo el correo", "Cerrar");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(txtSalario.Text) || !decimal.TryParse(txtSalario.Text, out decimal salario) || salario <= 0)
         {
-            DisplayAlert("Error", "Ingrese un salario válido mayor a 0.", "OK");
+            DisplayAlert("Error", "Ingrese de nuevo el salario", "Cerrar");
             return;
         }
 
