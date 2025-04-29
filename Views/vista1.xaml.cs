@@ -4,64 +4,71 @@ namespace ctrujilloT3.Views;
 
 public partial class vista1 : ContentPage
 {
-	public vista1()
-	{
-		InitializeComponent();
-	}
+    public vista1()
+    {
+        InitializeComponent();
+    }
 
     private void btnGuardar_Clicked(object sender, EventArgs e)
     {
+
+        if (pkIdentificacion.SelectedIndex == -1)
         {
-            try
+            DisplayAlert("Error", "Seleccione un tipo de identificaciÛn.", "Cerrar");
+            return;
+        }
+
+        string tipoIdentificacion = pkIdentificacion.SelectedItem?.ToString() ?? "No seleccionado";
+        string numeroIdentificacion = txtIdentificacion.Text;
+
+        if (string.IsNullOrWhiteSpace(numeroIdentificacion))
+        {
+            DisplayAlert("Error", "Ingrese el n˙mero de identificaciÛn.", "Cerrar");
+            return;
+        }
+
+        if (tipoIdentificacion == "CI")
+        {
+            if (numeroIdentificacion.Length != 10 || !numeroIdentificacion.All(char.IsDigit))
             {
-                if (string.IsNullOrWhiteSpace(txtNombres.Text) ||
-                    string.IsNullOrWhiteSpace(txtApellidos.Text) ||
-                     ||
-                    string.IsNullOrWhiteSpace(txtSalario.Text))
-                {
-                    DisplayAlert("Error", "Por favor, ingrese todos los datos", "OK");
-                    return;
-                }
-
-                string nombre = txtNombre.Text.Trim();
-                string apellido = txtApellido.Text.Trim();
-                string Edad = txtEdad.Text.Trim();
-                string Salario = txtSalario.Text.Trim();
-
-                if (!Regex.IsMatch(nombre, "^[a-zA-Z·ÈÌÛ˙¡…Õ”⁄Ò— ]+$") ||
-                    !Regex.IsMatch(apellido, "^[a-zA-Z·ÈÌÛ˙¡…Õ”⁄Ò— ]+$"))
-                {
-                    DisplayAlert("Error", "Ingrese de nuevo los nombres y apellidos", "OK");
-                    return;
-                }
-
-                if (!int.TryParse(Edad, out int edad))
-                {
-                    DisplayAlert("Error", "Ingrese de nuevo la edad", "OK");
-                    return;
-                }
-
-                if (!decimal.TryParse(Salario, out decimal salario))
-                {
-                    DisplayAlert("Error", "Ingrese de nuevo el salario", "OK");
-                    return;
-                }
-
-                decimal aporteIESS = salario * 0.0945m;
-
-                string mensaje = $"Bienvenido {nombre} {apellido}\n" +
-                                 $"Tienes {edad} aÒos\n" +
-                                 $"Tu aporte mensual es: ${aporteIESS:F2}";
-
-                lblResultado.Text = mensaje;
-                DisplayAlert("Alerta de Salario", mensaje, "Cerrar");
+                DisplayAlert("Error", "Ingrese el CI", "Cerrar");
+                return;
             }
-
-            catch (Exception ex)
+        }
+        else if (tipoIdentificacion == "RUC")
+        {
+            if (numeroIdentificacion.Length != 13 || !numeroIdentificacion.All(char.IsDigit))
             {
-                DisplayAlertException(ex);
+                DisplayAlert("Error", "Ingrese el RUC", "Cerrar");
+                return;
             }
         }
 
+        if (string.IsNullOrWhiteSpace(txtNombres.Text))
+        {
+            DisplayAlert("Error", "Ingrese su nombre.", "OK");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(txtApellidos.Text))
+        {
+            DisplayAlert("Error", "Ingrese su apellido.", "OK");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+        {
+            DisplayAlert("Error", "Ingrese su correo.", "OK");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(txtSalario.Text) || !decimal.TryParse(txtSalario.Text, out decimal salario) || salario <= 0)
+        {
+            DisplayAlert("Error", "Ingrese un salario v·lido mayor a 0.", "OK");
+            return;
+        }
+
+        Navigation.PushAsync(new vista2(tipoIdentificacion, numeroIdentificacion, txtNombres.Text.Trim(), txtApellidos.Text.Trim(),
+        dpkFecha.Date, txtCorreo.Text.Trim(), salario));
     }
 }

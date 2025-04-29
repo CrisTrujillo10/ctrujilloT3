@@ -3,10 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ctrujilloT3.Views.vista2"
              Title="vista2">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
+	<ContentPage.Resources>
+		<Style TargetType="Label">
+			<Setter Property="FontSize" Value="18"/>
+			<Setter Property="TextColor" Value="Chocolate"/>
+			<Setter Property="HorizontalTextAlignment" Value="Start"/>
+		</Style>
+		<Style TargetType="Button">
+			<Setter Property="FontSize" Value="20"/>
+			<Setter Property="TextColor" Value="White"/>
+			<Setter Property="Background" Value="Goldenrod"/>
+		</Style>
+	</ContentPage.Resources>
+
+	<VerticalStackLayout
+        Padding="20"
+        Spacing="20">
+
+		<Label
+            Text="VISUALIZAR CONTACTOS"
+            FontSize="30"
+            VerticalOptions="Center"
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+		<Image
+            Source="iees2.png"
+            MaximumHeightRequest="175"/>
+
+		<Label
+            x:Name="lblTipoIdentificacion"
+            Text="Tipo de Identificacion"/>
+
+		<Label
+            x:Name="lblNumeroIdentificacion"
+            Text="Numero de Identificacion"/>
+
+		<Label
+            x:Name="lblNombres"
+            Text="Nombres"/>
+
+		<Label
+            x:Name="lblApellidos"
+            Text="Apellidos"/>
+
+		<Label
+            x:Name="lblFecha"
+            Text="Fecha"/>
+
+		<Label
+            x:Name="lblCorreo"
+            Text="Correo"/>
+
+		<Label
+            x:Name="lblSalario"
+            Text="Salario"/>
+
+		<Label
+            x:Name="lblAporteIESS"
+            Text="Aporte al IESS"/>
+
+		<Button
+            x:Name="btnExportar"
+            Text="Exportar a archivo"
+            Clicked="btnExportar_Clicked"/>
+
+	</VerticalStackLayout>
 </ContentPage>
